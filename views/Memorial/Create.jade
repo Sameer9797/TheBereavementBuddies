@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+    .container
+        .panel
+            .panel-heading
+                h3.panel-title Create New Memorial
+            .panel-body
+                if messages.success
+                    .alert.alert-success(role='alert')
+                        for success in messages.success
+                            div= success.msg
+                if messages.error
+                    .alert.alert-danger(role='alert')
+                        for error in messages.error
+                            div= error.msg
+
+                form.form-horizontal(method='POST')
+                    .form-group
+                        label.col-sm-2(for='name') Name
+                        .col-sm-8
+                            input.form-control(type='text', name='name', id='name', autofocus=true)
+                    .form-group
+                        label.col-sm-2(for='birthYear') birthYear
+                        .col-sm-8
+                            input.form-control(type='date', name='birthYear', id='birthYear')
+                    .form-group
+                        label.col-sm-2(for='deathYear') date of death
+                        .col-sm-8
+                            input.form-control(type='date', name='deathYear', id='deathYear')
+                    .form-group
+                        .col-sm-offset-2.col-sm-8
+                            button.btn.btn-success(type='submit') Send
+//
+   Created by sameer on 28/10/2017.
+

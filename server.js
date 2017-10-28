@@ -17,6 +17,7 @@ dotenv.load();
 // Controllers
 var HomeController = require('./controllers/home');
 var userController = require('./controllers/user');
+var memorialController = require('./controllers/memorial');
 var contactController = require('./controllers/contact');
 
 // Passport OAuth strategies
@@ -30,6 +31,7 @@ var app = express();
     console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
     process.exit(1);
   });
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.set('port', process.env.PORT || 3000);
@@ -65,6 +67,7 @@ app.get('/reset/:token', userController.resetGet);
 app.post('/reset/:token', userController.resetPost);
 app.get('/logout', userController.logout);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
+app.get('/memorial/create',memorialController.memorialGet);
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'user_location'] }));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
