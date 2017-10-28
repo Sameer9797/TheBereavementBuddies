@@ -281,3 +281,34 @@ textarea {
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
+
+.parallax {
+  /* The image used */
+  background-image: url("../images/background.jpg");
+
+  /* Create the parallax scrolling effect */
+
+  margin-top : -20px;
+  /* Full height */
+  min-height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.caption {
+    width:30%;
+    color:white;
+    text-align:center;
+}
+
+
+
+body, html {
+  min-height: 100%;
+  height: 100%;
+}
