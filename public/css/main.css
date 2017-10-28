@@ -28,7 +28,7 @@ a:hover {
 }
 
 footer {
-  position: absolute;
+ /* position: absolute; */
   width: 100%;
   height: 44px;
   padding: 10px 30px;
@@ -293,21 +293,29 @@ textarea {
   /* Full height */
   min-height: 100%;
 
+
+    position:relative;
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+    overflow:hidden;
 
 }
 
 .caption {
-    width:30%;
-    color:white;
+    top:50%;
+    margin:auto;
+    color:black;
     text-align:center;
 }
 
-
+.caption p {
+    font-size:4em;
+    margin:20% auto;
+    color:grey;
+}
 
 body, html {
   min-height: 100%;
