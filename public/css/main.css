@@ -35,6 +35,7 @@ footer {
   bottom: 0;
   background-color: #fff;
   border-top: 1px solid #e0e0e0;
+    text-align: center;
 }
 
 .login-container {
@@ -335,9 +336,24 @@ textarea {
 }
 
 .caption p {
-    font-size:4em;
+    font-size:170px;
+  font-family: Arial, veranda;
+  font-weight: bold;
     margin:20% auto;
-    color:grey;
+    color:#4a4c4e;
+}
+.caption2 p {
+  font-size:70px;
+  text-align: center;
+  font-family: Arial, veranda;
+  font-weight: bold;
+  margin:20% auto;
+  color:#4a4c4e;
+}
+
+span {
+
+  font-style: italic;
 }
 
 body, html {
