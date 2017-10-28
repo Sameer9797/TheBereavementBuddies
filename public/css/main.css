@@ -282,26 +282,50 @@ textarea {
   text-transform: uppercase;
 }
 
-.parallax {
-  /* The image used */
-  background-image: url("../images/background.jpg");
 
-  /* Create the parallax scrolling effect */
+.parallax{
+    /* The image used */
 
-  margin-top : -20px;
-  /* Full height */
-  min-height: 100%;
+
+    /* Create the parallax scrolling effect */
+
+    margin-top : -20px;
+    /* Full height */
+    min-height: 100%;
 
 
     position:relative;
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow:hidden;
 
 }
+
+.parallax2{
+
+    background-image: url("../images/rose.jpg");
+
+    margin-top : -20px;
+    /* Full height */
+    min-height: 100%;
+
+
+    position:relative;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow:hidden
+}
+
+.parallax{
+    background-image:url("../images/background.jpg")
+}
+
 
 .caption {
     top:50%;
