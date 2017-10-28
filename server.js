@@ -76,7 +76,7 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedi
 
 app.get('/memorial/create',memorialController.memorialGet);
 app.post('/memorial/create',memorialController.memorialPost);
-
+app.get('/memorial/',memorialController.memorialView);
 
 // Production error handler
 if (app.get('env') === 'production') {
