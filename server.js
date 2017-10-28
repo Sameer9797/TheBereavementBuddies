@@ -19,6 +19,7 @@ var HomeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var memorialController = require('./controllers/memorial');
 var contactController = require('./controllers/contact');
+var middleware = require("./middleware");
 
 // Passport OAuth strategies
 require('./config/passport');
@@ -74,8 +75,8 @@ app.get('/auth/google/callback', passport.authenticate('google', { successRedire
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/', failureRedirect: '/login' }));
 
-app.get('/memorial/create',memorialController.memorialGet);
-app.post('/memorial/create',memorialController.memorialPost);
+app.get('/memorial/create', middleware.isLoggedIn,memorialController.memorialGet);
+app.post('/memorial/create', middleware.isLoggedIn, memorialController.memorialPost);
 app.get('/memorial/',memorialController.memorialView);
 
 // Production error handler

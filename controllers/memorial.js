@@ -3,6 +3,7 @@
  */
 
 var Memorial = require('../models/Memorial');
+var middleware = require("../middleware");
 
 
 exports.memorialGet = function(req, res) {
