@@ -16,7 +16,7 @@ exports.memoryGet = function(req, res) {
     });
 };
 
-exports.memoryPost = function(req,res){
+exports.memoryPost = function(req,res) {
 
     req.assert('name', 'Name cannot be blank').notEmpty();
     req.assert('body', 'must not be empty').notEmpty();
@@ -36,7 +36,7 @@ exports.memoryPost = function(req,res){
 
             Memory = new Memory({
                 name: req.body.name,
-                birthYear: req.body.body,
+                body: req.body.body,
                 author: req.user._id,
                 time: Date.now()
             });
@@ -45,18 +45,20 @@ exports.memoryPost = function(req,res){
                 if (err) {
                     console.log(err);
                     res.redirect("/memorial");
-
-
                 }
             });
 
-            memorial.memories.push(Memory);
+
+            console.log(Memory);
+
+            console.log(memorial);
+
+            memorial.memories.push(Memory._id);
             memorial.save();
-            console.log(comment);
+
             req.flash("success", "Successfully added comment");
             res.redirect('/memorial/' + memorial._id);
 
-        }
-    });
 
-    };
+}
+
