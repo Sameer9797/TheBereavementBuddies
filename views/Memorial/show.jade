@@ -6,7 +6,7 @@
 
 extends ../layout
 
-block content.memes
+block content
 
         if messages.success
             .alert.alert-success(role='alert')
@@ -27,6 +27,7 @@ block content.memes
                     .well.memory
                         .text-right
                             a(href=memorial.id + "/memory/").btn-primary  add new memory
+
             for memory in memorial.memories
                 .row
                     .col-lg-12

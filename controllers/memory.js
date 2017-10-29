@@ -17,6 +17,50 @@ exports.memoryGet = function(req, res) {
     });
 };
 
+exports.memoryPostExtension = function(req,res){
+    req.assert('name', 'Name cannot be blank').notEmpty();
+    req.assert('body', 'must not be empty').notEmpty();
+
+        Memorial.findById("59f558feb7b36757dc9d003b", function(err, memorial) {
+
+
+
+
+
+                Memory = new Memory({
+                    name: req.body.name,
+                    body: req.body.body,
+                    author: "1",
+                    time: new Date().toISOString().
+                    replace(/T/, ' ').      // replace T with a space
+                    replace(/\..+/, '')
+
+                });
+
+                Memory.save();
+
+                if(memorial.memories === null){
+                    memorial.memories = [];
+                    memorial.memories.push(Memory._id);
+                }
+                else{
+                    memorial.memories.push(Memory._id);
+                }
+
+                memorial.save();
+
+
+
+
+
+
+
+
+            req.flash("success", "Successfully added comment");
+            res.redirect('/memorial/' + memorial._id);
+        });
+    };
+
 exports.memoryPost = function(req,res) {
 
     req.assert('name', 'Name cannot be blank').notEmpty();
@@ -76,12 +120,6 @@ exports.memoryPost = function(req,res) {
         res.redirect('/memorial/' + memorial._id);
 
     });
-
-
-
-
-
-
 
 }
 

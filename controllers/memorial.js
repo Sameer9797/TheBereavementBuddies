@@ -47,6 +47,7 @@ exports.memorialPage = function(req,res){
             console.log(err);
         }
         else{
+
             console.log(foundMemorial);
             res.render("Memorial/show",{memorial:foundMemorial});
 
