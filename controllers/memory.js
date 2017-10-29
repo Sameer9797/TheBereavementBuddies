@@ -5,7 +5,7 @@
  * GET /
  */
 
-var Memorial = require('../models/Memory');
+var Memorial = require('../models/Memorial');
 var Memory = require('../models/Memory');
 var middleware = require("../middleware");
 
@@ -32,33 +32,56 @@ exports.memoryPost = function(req,res) {
         if (err) {
             console.log(err);
             res.redirect("/memorial");
-        } else {
+        }
+        else {
 
             Memory = new Memory({
                 name: req.body.name,
                 body: req.body.body,
                 author: req.user._id,
                 time: Date.now()
+
             });
 
             Memory.save(function (err) {
+
                 if (err) {
                     console.log(err);
                     res.redirect("/memorial");
                 }
             });
 
+            if(memorial.memories === null){
+                memorial.memories = [];
+                memorial.memories.push(Memory._id);
+            }
+            else{
+                memorial.memories.push(Memory._id);
+            }
 
-            console.log(Memory);
 
-            console.log(memorial);
-
-            memorial.memories.push(Memory._id);
             memorial.save();
 
-            req.flash("success", "Successfully added comment");
-            res.redirect('/memorial/' + memorial._id);
+
+        }
+
+        console.log(memorial);
+
+
+
+        req.flash("success", "Successfully added comment");
+        res.redirect('/memorial/' + memorial._id);
+
+    });
+
+
+
+
+
 
 
 }
+
+
+
 

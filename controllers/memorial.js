@@ -42,18 +42,20 @@ exports.memorialPost = function(req,res){
 
     };
 
-// exports.memorialView = function(req,res){
-//     Memorial.findById(req.Memorial.id).populate("memories").exec(function(err,foundMemorial){
-//         if(err) {
-//             console.log(err);
-//         }
-//         else{
-//             res.render("/memorial/show",{memorial:foundMemorial});
-//         }
-//
-//     });
-//
-// }
+exports.memorialPage = function(req,res){
+    Memorial.findById(req.params.id).populate("memories").exec(function(err,foundMemorial){
+        if(err) {
+            console.log(err);
+        }
+        else{
+            console.log(foundMemorial);
+            res.render("Memorial/show",{memorial:foundMemorial});
+
+        }
+
+    });
+
+}
 
 exports.memorialView = function(req,res) {
     Memorial.find({}, function (err, foundMemorial) {
@@ -64,12 +66,12 @@ exports.memorialView = function(req,res) {
     });
 }
 
-exports.memorialPage = function(req,res){
-    Memorial.findById(req.params.id,function(err, foundMemorial) {
-        console.log(foundMemorial);
-        res.render("Memorial/show", {memorial: foundMemorial});
-    });
-}
+// exports.memorialPage = function(req,res){
+//     Memorial.findById(req.params.id,function(err, foundMemorial) {
+//         console.log(foundMemorial);
+//         res.render("Memorial/show", {memorial: foundMemorial});
+//     });
+// }
 
 
 /**

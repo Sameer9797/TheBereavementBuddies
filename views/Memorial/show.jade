@@ -26,3 +26,9 @@ block content
                 .well.memory
                     .text-right
                         a(href=memorial.id + "/memory/").btn-primary  add new memory
+
+            for memory in memorial.memories
+                .well.memory
+                        p #{memory.name}
+                        p #{memory.body}
+
