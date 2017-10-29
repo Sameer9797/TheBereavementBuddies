@@ -328,21 +328,21 @@ textarea {
 }
 
 
-.caption {
+.captions {
     top:50%;
     margin:auto;
     color:black;
     text-align:center;
 }
 
-.caption p {
+.captions p {
     font-size:170px;
   font-family: Arial, veranda;
   font-weight: bold;
     margin:20% auto;
     color:#4a4c4e;
 }
-.caption2 p {
+.captions2 p {
   font-size:70px;
   text-align: center;
   font-family: Arial, veranda;
@@ -359,4 +359,27 @@ span {
 body, html {
   min-height: 100%;
   height: 100%;
+}
+
+button{
+    width:60px;
+    height:25px;
+}
+
+
+
+.photo img{
+    display: block;
+    margin: 0 auto;
+    width:300px;
+    min-height:400px;
+
+}
+
+.memory {
+    margin : 10px;
+}
+
+.btn-primary{
+    padding:7px;
 }

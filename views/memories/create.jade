@@ -17,21 +17,13 @@ block content
 
                 form.form-horizontal(method='POST')
                     .form-group
-                        label.col-sm-2(for='name') Name
+                        label.col-sm-2(for='name')
                         .col-sm-8
                             input.form-control(type='text', name='name', id='name', autofocus=true)
                     .form-group
-                        label.col-sm-2(for='birthYear') birthYear
+                        label.col-sm-2(for='body')
                         .col-sm-8
-                            input.form-control(type='date', name='birthYear', id='birthYear')
-                    .form-group
-                        label.col-sm-2(for='deathYear') date of death
-                        .col-sm-8
-                            input.form-control(type='date', name='deathYear', id='deathYear')
-                    .form-group
-                        label.col-sm-2(for='image') Image
-                        .col-sm-8
-                            input.form-control(type='text', name='image', id='image')
+                            input.form-control(type='body', name='body', id='body', autofocus=true)
                     .form-group
                         .col-sm-offset-2.col-sm-8
                             button.btn.btn-success(type='submit') Send

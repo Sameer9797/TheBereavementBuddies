@@ -17,7 +17,7 @@ exports.memorialPost = function(req,res){
     req.assert('name', 'Name cannot be blank').notEmpty();
     req.assert('birthYear', 'must be valid date').isDate();
     req.assert('deathYear', 'must be valid date').isDate();
-
+    req.assert('image','must be valid url');
 
 
     var errors = req.validationErrors();
@@ -30,7 +30,9 @@ exports.memorialPost = function(req,res){
         Memorial = new Memorial({
             name: req.body.name,
             birthYear: req.body.birthYear,
-            deathYear: req.body.deathYear
+            deathYear: req.body.deathYear,
+            image    : req.body.image,
+            author   : req.user._id
         });
 
         Memorial.save(function(err) {
@@ -55,14 +57,17 @@ exports.memorialPost = function(req,res){
 
 exports.memorialView = function(req,res) {
     Memorial.find({}, function (err, foundMemorial) {
-        if (err) {
-            console.log(err);
-        }
-        else {
             console.log(foundMemorial);
-            res.render("Memorial/show", {memorial: foundMemorial});
-        }
+            res.render("Memorial/index", {memorial: foundMemorial});
 
+
+    });
+}
+
+exports.memorialPage = function(req,res){
+    Memorial.findById(req.params.id,function(err, foundMemorial) {
+        console.log(foundMemorial);
+        res.render("Memorial/show", {memorial: foundMemorial});
     });
 }
 

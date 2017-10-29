@@ -1,3 +1,6 @@
+//
+   Created by sameer on 28/10/2017.
+
 //each item in memorial
 //    span #{item}
 
@@ -14,11 +17,12 @@ block content
                 div= error.msg
 
     .container
-        .jumbotron
-            .container
-               h1 Memorium
-               p remember them
-
-        .row.text-center.graveyard
-            each item in memorial
-                span #{item}
+        .row
+            .col-lg-12
+                .thumnail.photo
+                    img(src = memorial.image alt = "memes")
+        .row
+            .col-lg-12
+                .well.memory
+                    .text-right
+                        a(href=memorial.id + "/memory/").btn-primary  add new memory

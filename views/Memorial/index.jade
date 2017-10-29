@@ -1,0 +1,36 @@
+//each item in memorial
+//    span #{item}
+
+extends ../layout
+
+block content
+    if messages.success
+        .alert.alert-success(role='alert')
+            for success in messages.success
+                div= success.msg
+    if messages.error
+        .alert.alert-danger(role='alert')
+            for error in messages.error
+                div= error.msg
+
+    .container
+        .jumbotron
+            .container
+               h1 Memorium
+               p remember them
+
+        .row.text-center.graveyard
+            each item in memorial
+                .col-md-3.col-sm-6
+                    .thumbnail
+                        img(src = item.image alt = "memes")
+                        .caption
+                            p  #{item.name}
+                            p  #{item.birthYear} - #{item.deathYear}
+                            a(href="memorial/" + item.id).btn-primary  Vist Memorial
+
+
+
+
+
+

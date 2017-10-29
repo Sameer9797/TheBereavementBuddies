@@ -8,6 +8,7 @@ var UserSchema = new mongoose.Schema({
     name: String,
     birthYear: Date,
     deathYear: Date,
+    image    : String,
     author : {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
