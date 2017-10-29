@@ -29,7 +29,7 @@ require('./config/passport');
 var app = express();
 
 
-ongoose.connect(process.env.MONGODB_URI);
+  mongoose.connect(process.env.MONGODB_URI);
   mongoose.connection.on('error', function() {
     console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
     process.exit(1);
@@ -84,8 +84,8 @@ app.get('/memorial/',memorialController.memorialView);
 app.get('/memorial/:id',memorialController.memorialPage);
 
 
-app.get('/memorial/:id/memory/', middleware.checkMemorialOwnership,memoryController.memoryGet);
-app.post('/memorial/:id/memory/', middleware.checkMemorialOwnership, memoryController.memoryPost);
+app.get('/memorial/:id/memory/', middleware.ch,memoryController.memoryGet);
+app.post('/memorial/:id/memory/', middleware.isLoggedIn, memoryController.memoryPost);
 
 
 // Production error handler
