@@ -3,7 +3,6 @@
  */
 
 var Memorial = require('../models/Memorial');
-var middleware = require("../middleware");
 
 
 exports.memorialGet = function(req, res) {
@@ -37,7 +36,7 @@ exports.memorialPost = function(req,res){
 
         Memorial.save(function(err) {
             console.log(Memorial);
-                res.redirect('/');
+                res.redirect('/memorial');
         });
 
     };
@@ -61,8 +60,6 @@ exports.memorialView = function(req,res) {
     Memorial.find({}, function (err, foundMemorial) {
             console.log(foundMemorial);
             res.render("Memorial/index", {memorial: foundMemorial});
-
-
     });
 }
 

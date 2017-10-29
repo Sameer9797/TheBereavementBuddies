@@ -4,7 +4,7 @@
 var mongoose = require("mongoose");
 
 
-var UserSchema = new mongoose.Schema({
+var memorialSchema = new mongoose.Schema({
     name: String,
     birthYear: Date,
     deathYear: Date,
@@ -23,4 +23,7 @@ var UserSchema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.model("Memorial", UserSchema);
+
+var Memorial = mongoose.model("Memorial",  memorialSchema);
+
+module.exports = Memorial;

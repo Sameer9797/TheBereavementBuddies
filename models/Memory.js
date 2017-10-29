@@ -13,7 +13,7 @@ var memorySchema = new mongoose.Schema({
         ref: "User"
     },
     time : { type : Date, default: Date.now }
-}, schemaOptions);
+});
 
 
 var Memory = mongoose.model('Memory', memorySchema);

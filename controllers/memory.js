@@ -5,8 +5,9 @@
  * GET /
  */
 
-var Memorial = require('../models/Memorial');
+var User = require('../models/User');
 var Memory = require('../models/Memory');
+var Memorial = require('../models/Memorial');
 var middleware = require("../middleware");
 
 
@@ -39,7 +40,9 @@ exports.memoryPost = function(req,res) {
                 name: req.body.name,
                 body: req.body.body,
                 author: req.user._id,
-                time: Date.now()
+                time: new Date().toISOString().
+                replace(/T/, ' ').      // replace T with a space
+                replace(/\..+/, '')
 
             });
 

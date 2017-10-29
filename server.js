@@ -84,8 +84,8 @@ app.get('/memorial/',memorialController.memorialView);
 app.get('/memorial/:id',memorialController.memorialPage);
 
 
-app.get('/memorial/:id/memory/', middleware.isLoggedIn,memoryController.memoryGet);
-app.post('/memorial/:id/memory/', middleware.isLoggedIn, memoryController.memoryPost);
+app.get('/memorial/:id/memory/', middleware.checkMemorialOwnership,memoryController.memoryGet);
+app.post('/memorial/:id/memory/', middleware.checkMemorialOwnership, memoryController.memoryPost);
 
 
 // Production error handler

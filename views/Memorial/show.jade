@@ -6,29 +6,35 @@
 
 extends ../layout
 
-block content
-    if messages.success
-        .alert.alert-success(role='alert')
-            for success in messages.success
-                div= success.msg
-    if messages.error
-        .alert.alert-danger(role='alert')
-            for error in messages.error
-                div= error.msg
+block content.memes
 
-    .container
-        .row
-            .col-lg-12
-                .thumnail.photo
-                    img(src = memorial.image alt = "memes")
-        .row
-            .col-lg-12
-                .well.memory
-                    .text-right
-                        a(href=memorial.id + "/memory/").btn-primary  add new memory
+        if messages.success
+            .alert.alert-success(role='alert')
+                for success in messages.success
+                    div= success.msg
+        if messages.error
+            .alert.alert-danger(role='alert')
+                for error in messages.error
+                    div= error.msg
 
+        .container
+            .row
+                .col-lg-12
+                    .thumnail.photo
+                        img(src = memorial.image alt = "memes")
+            .row
+                .col-lg-12
+                    .well.memory
+                        .text-right
+                            a(href=memorial.id + "/memory/").btn-primary  add new memory
             for memory in memorial.memories
-                .well.memory
-                        p #{memory.name}
-                        p #{memory.body}
+                .row
+                    .col-lg-12
+                        .well.memory
+                            h1.memoryTitle #{memory.name}
+                            p.memoryText #{memory.body}
+
+
+                            p.date Posted on #{memory.time}
+                            //P #{memory}
 
